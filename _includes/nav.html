@@ -1,0 +1,9 @@
+<nav class="site-nav">
+  <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+  <a href="{{ '/getting-started/' | relative_url }}" {% if page.url contains 'getting-started' %}class="active"{% endif %}>Getting Started</a>
+  <a href="{{ '/data-sources/' | relative_url }}" {% if page.url contains 'data-sources' %}class="active"{% endif %}>Data Sources</a>
+  <a href="{{ '/mcp-setup/' | relative_url }}" {% if page.url contains 'mcp-setup' %}class="active"{% endif %}>MCP Setup</a>
+  <a href="{{ '/faq/' | relative_url }}" {% if page.url contains 'faq' %}class="active"{% endif %}>FAQ</a>
+  <a href="{{ '/pricing/' | relative_url }}" {% if page.url contains 'pricing' %}class="active"{% endif %}>Pricing</a>
+  <a href="{{ '/privacy-policy/' | relative_url }}" {% if page.url contains 'privacy-policy' %}class="active"{% endif %}>Privacy Policy</a>
+</nav>
