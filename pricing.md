@@ -11,26 +11,24 @@ title: Pricing
   <div class="pricing-card">
     <h3>Free</h3>
     <p>Get started with basic analytics</p>
-    <div class="price">£0</div>
+    <div class="price">$0</div>
     <div class="price-period">forever</div>
     <ul>
       <li>Shopify data only</li>
       <li>100 products or orders limit</li>
-      <li>100 queries per month</li>
-      <li>7-day data history</li>
+      <li>Unlimited queries</li>
       <li>Manual export to Claude</li>
     </ul>
   </div>
   <div class="pricing-card">
     <h3>Pro</h3>
     <p>For growing stores</p>
-    <div class="price">£49</div>
-    <div class="price-period">per month (or £490/year)</div>
+    <div class="price">$49</div>
+    <div class="price-period">per month (or $490/year)</div>
     <ul>
       <li>Shopify + API-key integrations</li>
-      <li>Klaviyo, Recharge, Gorgias, Clarity, YouTube, Reviews.io</li>
+      <li>Klaviyo, Recharge, Gorgias, Clarity, YouTube, Reviews.io, Yotpo, Smile.io, Swish</li>
       <li>Unlimited queries</li>
-      <li>90-day data history</li>
       <li>5 scheduled reports per month</li>
       <li>Email support</li>
     </ul>
@@ -38,13 +36,12 @@ title: Pricing
   <div class="pricing-card featured">
     <h3>Business <span class="badge badge-business">Most popular</span></h3>
     <p>For high-volume stores</p>
-    <div class="price">£79</div>
-    <div class="price-period">per month (or £790/year)</div>
+    <div class="price">$79</div>
+    <div class="price-period">per month (or $790/year)</div>
     <ul>
       <li>All integrations included</li>
       <li>Triple Whale, Google Analytics & Search Console</li>
       <li>Unlimited queries</li>
-      <li>Unlimited data history</li>
       <li>Unlimited scheduled reports</li>
       <li>Claude API integration (auto-analysis)</li>
       <li>Priority support</li>
@@ -59,8 +56,7 @@ title: Pricing
 | Shopify data | Yes | Yes | Yes |
 | API-key integrations (Klaviyo, Gorgias, etc.) | — | Yes | Yes |
 | OAuth integrations (GA4, Search Console, Triple Whale) | — | — | Yes |
-| Queries per month | 100 | Unlimited | Unlimited |
-| Data history | 7 days | 90 days | Unlimited |
+| Queries per month | Unlimited | Unlimited | Unlimited |
 | Scheduled reports | — | 5/month | Unlimited |
 | Claude API auto-analysis | — | — | Yes |
 | Support | — | Email | Priority |
