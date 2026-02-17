@@ -38,6 +38,66 @@ We store only the data necessary to provide analytics and insights:
 
 When you connect third-party data sources (Klaviyo, Triple Whale, Gorgias, etc.), we sync only aggregated metrics and performance data. We do not access or store the underlying personal data from these platforms. See our [Data Sources]({{ '/data-sources/' | relative_url }}) page for a detailed breakdown of exactly what is synced from each provider.
 
+## Google User Data
+
+Our application integrates with Google services using OAuth 2.0 with **read-only** access. This section describes exactly what Google user data we access, how we use it, and how we protect it.
+
+### Google Data Accessed
+
+When you connect a Google service, we access only the following data:
+
+| Google Service | OAuth Scope | Data Accessed |
+|---|---|---|
+| **Google Search Console** | `webmasters.readonly` | Organic search keywords, impressions, clicks, click-through rates, and average search position for your verified web properties |
+| **Google Analytics 4** | `analytics.readonly` | Website sessions, users, page views, traffic sources, device and browser categories, and geographic data (country/region level only) |
+| **Google Ads** | `adwords` (read-only) | Campaign names, impressions, clicks, cost, conversions, and performance metrics |
+| **YouTube** | `youtube.readonly` | Channel statistics, video metadata (titles, descriptions, publish dates), view counts, engagement metrics (likes, comments), and video transcripts |
+
+All Google API scopes are requested as **read-only**. Our application does not modify, delete, or create any data in your Google accounts.
+
+### Google Data Usage
+
+Google user data is used exclusively to:
+
+- Display analytics dashboards within your Shopify admin so you can view marketing performance alongside your store data
+- Enable AI-powered insights by making your analytics data queryable through the Model Context Protocol (MCP)
+- Provide aggregated performance metrics and trend analysis across your connected data sources
+
+Google user data is **not** used for:
+
+- Advertising, remarketing, or ad targeting purposes
+- Sale, rental, or transfer to third parties
+- Training machine learning or AI models
+- Profiling, tracking, or building user profiles
+- Any purpose unrelated to providing the app's core analytics functionality
+
+### Google Data Storage
+
+- Google OAuth tokens (access and refresh tokens) are encrypted at rest using **AES-256-GCM** encryption and stored in our PostgreSQL database
+- Synced analytics data (metrics, keywords, video stats) is stored in our database and associated with your Shopify shop
+- Data retention follows your subscription tier: 7 days (Free), 90 days (Pro), unlimited (Business)
+- All data is encrypted in transit via TLS/HTTPS
+
+### Google Data Sharing
+
+Google user data is **not shared** with any third parties. Data remains within our application infrastructure and is only accessible to the authenticated Shopify store owner who connected the Google account.
+
+When you use the MCP endpoint to query your data via an AI client (such as Claude Desktop), the relevant analytics data is sent to the AI client you have configured. This is initiated by you and only occurs when you explicitly query your data.
+
+### Revoking Google Access
+
+You can disconnect any Google service at any time from the Data Sources page in the app. Upon disconnection:
+
+- OAuth tokens are immediately revoked with Google and deleted from our database
+- Synced data associated with that connection is removed
+- You can also revoke access directly from your [Google Account permissions page](https://myaccount.google.com/permissions)
+
+Upon app uninstallation, all Google user data and OAuth tokens are permanently deleted.
+
+### Google API Services User Data Policy
+
+Our use and transfer to any other app of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
 ## Data Security
 
 - All data is encrypted in transit using TLS
@@ -64,12 +124,14 @@ We comply with:
 - **GDPR** (General Data Protection Regulation)
 - **CCPA** (California Consumer Privacy Act)
 - **Shopify's data protection requirements** for app developers
+- **[Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy)**, including the Limited Use requirements
 
 ## Third-Party Services
 
 We integrate with the following categories of third-party services:
 
 - **Shopify** — Your store data is accessed through Shopify's API with the permissions you grant during installation
+- **Google services** — Google Search Console, Google Analytics 4, Google Ads, and YouTube data is accessed via OAuth 2.0 with read-only scopes. See [Google User Data](#google-user-data) above for full details
 - **Third-party integrations** — Data from Klaviyo, Triple Whale, Gorgias, and other connected services is accessed using the API keys you provide
 - **AI clients** — When you use the MCP endpoint, your data is sent to the AI client you've configured (Claude Desktop, Claude Code, etc.)
 
